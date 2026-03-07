@@ -18,6 +18,11 @@ const router = createRouter({
       name: 'responsiveBasics',
       component: () => import('../views/ResponsiveBasicsView.vue'),
     },
+    {
+      path: '/computedAttr',
+      name: 'computedAttr',
+      component: () => import('../views/ComputedAttrView.vue'),
+    },
   ],
 })
 

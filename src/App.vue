@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import Navbar from '@/views/components/Navbar.vue'
 </script>
 
 <template>
   <div class="layout">
     <header class="header">
-      <nav>
-        <RouterLink to="/">开始页面</RouterLink>
-        <RouterLink to="/template">模板语法</RouterLink>
-      </nav>
+      <navbar />
     </header>
     <main class="content">
       <RouterView />
@@ -19,36 +17,70 @@ import { RouterLink, RouterView } from 'vue-router'
   </div>
 </template>
 
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+</style>
+
 <style scoped>
 .layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
+  position: relative;
 }
 
 .header {
   flex-shrink: 0;
-  position: sticky;
+  width: 100%;
+  position: fixed;
   top: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  overflow-x: auto;
-}
-
-.header nav {
-  display: flex;
-  gap: 16px;
-  white-space: nowrap;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .content {
   flex: 1;
-  overflow-y: auto;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  padding-top: 76px;
+  padding-bottom: 76px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: left;
+  min-height: calc(100vh - 136px);
+}
+
+.content > * {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
 }
 
 .footer {
   flex-shrink: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 </style>

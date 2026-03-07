@@ -37,7 +37,7 @@ const eventName = ref('click')
 
 <template>
   <!--  2-模板语法  -->
-  <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+  <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick" style="width: 100%">
     <el-tab-pane label="文本插值" name="first"
       ><div>
         <p>使用文本插值渲染HTML：</p>
@@ -129,10 +129,15 @@ const eventName = ref('click')
 </template>
 
 <style scoped>
+.demo-tabs {
+  width: 100%;
+  text-align: left;
+}
+
 .demo-tabs > .el-tabs__content {
-  padding: 32px;
   color: #6b778c;
-  font-size: 32px;
+  font-size: 16px;
   font-weight: 600;
+  text-align: left;
 }
 </style>
