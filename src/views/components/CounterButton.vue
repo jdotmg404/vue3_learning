@@ -5,6 +5,7 @@ const count = ref(0)
 
 <template>
   <div class="counter-container">
+    <span>计数器：{{ count }}</span>
     <div class="button-group">
       <el-button class="btn" type="primary" @click="count++">自增</el-button>
       <el-button class="btn" type="danger" @click="count--">自减</el-button>

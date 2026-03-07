@@ -31,6 +31,34 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+
+.content-container {
+  width: 100%;
+  text-align: left;
+}
+
+h1 {
+  margin-bottom: 16px;
+}
+h2 {
+  margin: 24px 0 12px 0;
+}
+p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+ul {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+li {
+  margin-bottom: 8px;
+}
+
+.counter-section,
+.info-section {
+  margin-top: 32px;
+}
 </style>
 
 <style scoped>

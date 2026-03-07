@@ -2,7 +2,7 @@
 
 <template>
   <!-- 计算属性 -->
-  <div class="page-container">
+  <div class="content-container">
     <h1>计算属性</h1>
     <p>这是计算属性页面的内容区域</p>
     <div class="content-section">
@@ -38,35 +38,4 @@
   </div>
 </template>
 
-<style scoped>
-.page-container {
-  width: 100%;
-  text-align: left;
-}
-
-.page-container h1 {
-  margin-bottom: 16px;
-}
-
-.page-container h2 {
-  margin: 24px 0 12px 0;
-}
-
-.page-container p {
-  margin-bottom: 12px;
-  line-height: 1.6;
-}
-
-.page-container ul {
-  margin-left: 20px;
-  margin-bottom: 12px;
-}
-
-.page-container li {
-  margin-bottom: 8px;
-}
-
-.content-section {
-  margin-top: 24px;
-}
-</style>
+<style scoped></style>
