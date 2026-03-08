@@ -17,10 +17,15 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "@crazydos/vue-markdown": "^1.1.4",
     "dayjs": "^1.11.19",
     "element-plus": "^2.13.3",
     "mockjs": "^1.1.0",
     "pinia": "^3.0.4",
+    "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
+    "shiki": "^4.0.1",
     "vue": "^3.5.29",
     "vue-router": "^5.0.3"
   },

@@ -59,6 +59,11 @@ li {
 .info-section {
   margin-top: 32px;
 }
+
+hr {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
 </style>
 
 <style scoped>

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+defineOptions({
+  name: 'AppNavbar',
+})
 import { RouterLink } from 'vue-router'
 
 const navList = [

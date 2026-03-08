@@ -1,35 +1,120 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { reactive, ref } from 'vue'
+import MarkdownComponent from '@/views/components/MarkdownComponent.vue'
+
+const count = ref(0)
+function increment() {
+  count.value++
+}
+const codeExample = `import { ref } from 'vue'
+
+export default {
+  setup() {
+    const count = ref(0)
+
+    function increment() {
+      // 在 JavaScript 中需要 .value
+      count.value++
+    }
+
+    // 不要忘记同时暴露 increment 函数
+    return {
+      count,
+      increment
+    }
+  }
+}`
+
+const text = `
+***选项式 API 声明如下：***
+\`\`\`javascript
+${codeExample}
+\`\`\`
+`
+
+const obj = ref({
+  nested: { count: 0 },
+  arr: ['foo', 'bar'],
+})
+
+function mutateDeeply() {
+  // 以下都会按照期望工作
+  obj.value.nested.count++
+  obj.value.arr.push('baz')
+}
+
+function reset() {
+  obj.value.nested.count = 0
+  obj.value.arr = ['foo', 'bar']
+}
+
+const state = reactive({ count: 0 })
+
+function incrementState() {
+  state.count++
+}
+
+function decrementState() {
+  state.count--
+}
+
+function resetState() {
+  state.count = 0
+}
+const codeExample1 = `
+// 在同一个对象上调用 reactive() 会返回相同的代理
+console.log(reactive(raw) === proxy) // true
+
+// 在一个代理上调用 reactive() 会返回它自己
+console.log(reactive(proxy) === proxy) // true`
+const text1 = `
+\`\`\`javascript
+${codeExample1}
+\`\`\`
+`
+</script>
 
 <template>
   <!-- 响应式基础 -->
   <div class="content-container">
-    <h1>响应式基础</h1>
-    <p>这是响应式基础页面的内容区域</p>
-    <div class="content-section">
-      <h2>什么是响应式？</h2>
-      <p>响应式是指当数据发生变化时，视图会自动更新</p>
+    <h1>声明式响应</h1>
+    <h2>ref()</h2>
+    <div>
+      <p>1-使用ref实现基础类型响应式</p>
+      <p>count值: {{ count }}</p>
+      <el-button class="btn" type="primary" @click="increment">自增</el-button>
+      <markdown-component :markdown="text"></markdown-component>
     </div>
-    <div class="content-section">
-      <h2>Vue 3 的响应式系统</h2>
-      <p>Vue 3 使用 Proxy 来实现响应式，相比 Vue 2 的 Object.defineProperty 有更好的性能</p>
+    <div>
+      <p>2-使用ref实现对象响应式</p>
+      <p>obj.nested.count: {{ obj.nested.count }}</p>
+      <p>obj.arr: {{ obj.arr }}</p>
+      <el-button class="btn" type="primary" @click="mutateDeeply">尝试一下</el-button>
+      <el-button class="btn" type="primary" @click="reset">重置</el-button>
     </div>
-    <div class="content-section">
-      <h2>ref 和 reactive</h2>
-      <p>ref 用于基本类型数据，reactive 用于对象类型数据</p>
+    <hr />
+    <h2>reactive()</h2>
+    <div>
+      <p>1-使用reactive实现对象响应式</p>
+      <p>state.count: {{ state.count }}</p>
+      <el-button class="btn" type="primary" @click="incrementState">自增</el-button>
+      <el-button class="btn" type="primary" @click="decrementState">自减</el-button>
+      <el-button class="btn" type="primary" @click="resetState">重置</el-button>
+      <p>注意：</p>
+      <p>1.reactive()返回的是一个原始对象的的Proxy，它和原始对象是不相等的</p>
+      <p>
+        2.只有代理对象是响应式的，更改原始对象不会触发更新。因此，使用 Vue
+        的响应式系统的最佳实践是仅使用你声明对象的代理版本。
+      </p>
+      <p>
+        3.为保证访问代理的一致性，对同一个原始对象调用 reactive()
+        会总是返回同样的代理对象，而对一个已存在的代理对象调用 reactive() 会返回其本身
+      </p>
+      <markdown-component :markdown="text1"></markdown-component>
+      <h3>reactive()的局限性</h3>
+      <div></div>
     </div>
-    <div class="content-section">
-      <h2>响应式原理</h2>
-      <p>通过 Proxy 拦截对象的操作，实现数据的自动追踪和更新</p>
-    </div>
-    <div class="content-section">
-      <h2>最佳实践</h2>
-      <ul>
-        <li>基本类型使用 ref</li>
-        <li>对象类型使用 reactive</li>
-        <li>在模板中自动解包 ref</li>
-        <li>在脚本中需要 .value 访问 ref 的值</li>
-      </ul>
-    </div>
+    <hr />
   </div>
 </template>
 
