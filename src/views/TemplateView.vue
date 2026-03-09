@@ -8,7 +8,7 @@ import imageUrl from '@/assets/images/directive.png'
 import avatorImage from '@/assets/images/middle_avator.jpg'
 const activeName = ref('first')
 const handleClick = (tab: TabsPaneContext, event: Event) => {
-  // console.log(tab, event)
+  console.log(tab, event)
 }
 const message = '简单的Mustache插值字符串'
 const rawHtml = `
@@ -134,11 +134,4 @@ const eventName = ref('click')
   </el-tabs>
 </template>
 
-<style scoped>
-.content-container > .el-tabs__content {
-  color: #6b778c;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: left;
-}
-</style>
+<style scoped></style>

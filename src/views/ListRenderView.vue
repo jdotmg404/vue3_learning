@@ -19,26 +19,38 @@ const myObject = reactive({
     <h1>v-for</h1>
     <div>
       <div>1-使用别名</div>
-      <li v-for="(item, index) in items" :key="index">
-        {{ parentMessage }} - {{ index }} - {{ item.message }}
-      </li>
+      <ul>
+        <li v-for="item in items" :key="item.message">{{ parentMessage }} - {{ item.message }}</li>
+      </ul>
+      <br />
+      <ul>
+        <li v-for="(item, index) in items" :key="index">
+          {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
+      </ul>
       <br />
       <div>2-使用解构</div>
-      <li v-for="({ message }, index) in items" :key="message">
-        {{ parentMessage }} - {{ index }} - {{ message }}
-      </li>
+      <ul>
+        <li v-for="({ message }, index) in items" :key="message">
+          {{ parentMessage }} - {{ index }} - {{ message }}
+        </li>
+      </ul>
       <br />
       <div>3-多层循环</div>
-      <li v-for="(item, index) in tree" :key="index">
-        <span v-for="{ message } in item.children" :key="message">
-          {{ item.message }} {{ message }}
-        </span>
-      </li>
+      <ul>
+        <li v-for="(item, index) in tree" :key="index">
+          <span v-for="{ message } in item.children" :key="message">
+            {{ item.message }} {{ message }}
+          </span>
+        </li>
+      </ul>
       <br />
       <div>4-遍历对象</div>
-      <li v-for="(value, key, index) in myObject" :key="index">
-        {{ index }} - {{ key }}: {{ value }}
-      </li>
+      <ul>
+        <li v-for="(value, key, index) in myObject" :key="index">
+          {{ index }} - {{ key }}: {{ value }}
+        </li>
+      </ul>
       <br />
       <div>5-使用范围值</div>
       <div>
@@ -48,7 +60,7 @@ const myObject = reactive({
       <br />
       <div>6-template使用v-for</div>
       <ul>
-        <template v-for="item in items">
+        <template v-for="item in items" :key="item.message">
           <li>{{ item.message }}</li>
           <li class="divider" role="presentation"></li>
         </template>
