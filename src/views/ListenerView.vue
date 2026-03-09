@@ -9,7 +9,7 @@ const source = ref(null)
 const todoId = ref(1)
 const data = ref(null)
 const id = ref(1)
-watch(question, async (newQuestion: string, oldQuestion: string) => {
+watch(question, async (newQuestion: string) => {
   if (newQuestion.includes('?')) {
     loading.value = true
     answer.value = 'Thinking...'
@@ -96,7 +96,7 @@ watchEffect(async () => {
   data.value = await response.json()
 })
 
-watch(id, (newId, oldId) => {
+watch(id, (newId) => {
   const controller = new AbortController()
   // 模拟请求
   fetch(`https://jsonplaceholder.typicode.com/todos/${newId}`, {

@@ -4,7 +4,8 @@ import type { TabsPaneContext } from 'element-plus'
 
 import * as Mock from 'mockjs'
 import dayjs from 'dayjs'
-
+import imageUrl from '@/assets/images/directive.png'
+import avatorImage from '@/assets/images/middle_avator.jpg'
 const activeName = ref('first')
 const handleClick = (tab: TabsPaneContext, event: Event) => {
   // console.log(tab, event)
@@ -13,7 +14,7 @@ const message = '简单的Mustache插值字符串'
 const rawHtml = `
 <div>
   <p style="color: cornflowerblue">带颜色字体</p>
-  <img alt="暂无图片" src="../../resource/image/middle_avator.jpg" style="height: 42px">
+  <img alt="暂无图片" src="${avatorImage}" style="height: 42px">
 </div>
 `
 const isButtonDisabled = ref(true)
@@ -127,7 +128,7 @@ const eventName = ref('click')
       </div>
       <div>
         <p>5-修饰符：</p>
-        <el-image src="../../resource/image/directive.png"></el-image>
+        <el-image :src="imageUrl"></el-image>
       </div>
     </el-tab-pane>
   </el-tabs>

@@ -15,6 +15,9 @@ const navList = [
   { name: '事件处理', path: '/eventHandle' },
   { name: '表单输入绑定', path: '/formInputBind' },
   { name: '侦听器', path: '/listener' },
+  { name: '模板引用', path: '/templateReference' },
+  { name: '组件基础', path: '/component' },
+  { name: '生命周期', path: '/lifeStyle' },
 ]
 </script>
 
