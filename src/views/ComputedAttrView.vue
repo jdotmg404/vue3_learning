@@ -1,40 +1,93 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed, reactive, ref } from 'vue'
+
+const author = reactive({
+  name: 'John Doe',
+  books: ['Vue 2 - Advanced Guide', 'Vue 3 - Basic Guide', 'Vue 4 - The Mystery'],
+})
+
+const publishedBooksMessage = computed(() => {
+  return author.books.length ? 'Yes' : 'No'
+})
+
+const now = computed(() => Date.now())
+
+const firstName = ref<string>('John')
+const lastName = ref<string>('Doe')
+
+const fullName = computed({
+  get() {
+    return `${firstName.value} ${lastName.value}`
+  },
+  set(newValue) {
+    ;[firstName.value, lastName.value] = newValue.split(' ') as [string, string]
+  },
+})
+function setFullName() {
+  fullName.value = 'Judy Anna'
+}
+
+function resetFullName() {
+  fullName.value = 'John Doe'
+}
+
+const count = ref(2)
+
+const alwaysSmall = computed((previous) => {
+  if (count.value <= 3) {
+    return count.value
+  }
+  return previous
+})
+
+const alwaysSmallOptional = computed({
+  get(previous) {
+    if (count.value <= 3) {
+      return count.value
+    }
+    return previous
+  },
+  set(newValue) {
+    count.value = newValue as number
+  },
+})
+</script>
 
 <template>
   <!-- 计算属性 -->
   <div class="content-container">
     <h1>计算属性</h1>
-    <p>这是计算属性页面的内容区域</p>
-    <div class="content-section">
-      <h2>什么是计算属性？</h2>
-      <p>计算属性是基于响应式数据进行计算的属性，会自动缓存结果</p>
+    <p>1-基础示例</p>
+    <p>Has published books: {{ publishedBooksMessage }}</p>
+    <p>{{ now }}</p>
+    <br />
+
+    <p>2-可写计算属性</p>
+    <p>firstName: {{ firstName }}</p>
+    <p>lastName: {{ lastName }}</p>
+    <p>fullName: {{ fullName }}</p>
+    <div>
+      <el-button @click="setFullName">设置fullName</el-button>
+      <el-button @click="resetFullName">重置fullName</el-button>
     </div>
-    <div class="content-section">
-      <h2>计算属性 vs 方法</h2>
-      <p>计算属性有缓存，只有依赖的数据变化时才会重新计算</p>
-      <p>方法每次调用都会重新执行</p>
+
+    <br />
+    <p>3-获取上一个值</p>
+    <p>count: {{ count }}</p>
+    <p>alwaysSmall: {{ alwaysSmall }}</p>
+    <p>alwaysSmallOptional: {{ alwaysSmallOptional }}</p>
+    <div>
+      <el-button @click="count++">count++</el-button>
+      <el-button @click="count--">count--</el-button>
     </div>
-    <div class="content-section">
-      <h2>计算属性的特点</h2>
-      <ul>
-        <li>自动缓存</li>
-        <li>基于依赖进行更新</li>
-        <li>性能优于方法</li>
-        <li>支持 getter 和 setter</li>
-      </ul>
-    </div>
-    <div class="content-section">
-      <h2>使用场景</h2>
-      <p>适合用于复杂的数据计算、格式化、过滤等操作</p>
-    </div>
-    <div class="content-section">
-      <h2>最佳实践</h2>
-      <ul>
-        <li>优先使用计算属性而非方法</li>
-        <li>避免在计算属性中进行副作用操作</li>
-        <li>保持计算属性的纯粹性</li>
-      </ul>
-    </div>
+
+    <br />
+    <p>最佳实践</p>
+    <p>Getter 不应有副作用 - 不要改变其他状态、在 getter 中做异步请求或者更改 DOM</p>
+    <p>
+      避免直接修改计算属性值 -
+      计算属性的返回值应该被视为只读的，并且永远不应该被更改——应该更新它所依赖的源状态以触发新的计算
+    </p>
   </div>
 </template>
 

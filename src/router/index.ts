@@ -23,6 +23,36 @@ const router = createRouter({
       name: 'computedAttr',
       component: () => import('../views/ComputedAttrView.vue'),
     },
+    {
+      path: '/bind',
+      name: 'bind',
+      component: () => import('../views/BindView.vue'),
+    },
+    {
+      path: '/conditionRender',
+      name: 'conditionRender',
+      component: () => import('../views/ConditionRenderView.vue'),
+    },
+    {
+      path: '/listRender',
+      name: 'listRender',
+      component: () => import('../views/ListRenderView.vue'),
+    },
+    {
+      path: '/eventHandle',
+      name: 'eventHandle',
+      component: () => import('../views/EventHandleView.vue'),
+    },
+    {
+      path: '/formInputBind',
+      name: 'formInputBind',
+      component: () => import('../views/FormInputBindView.vue'),
+    },
+    {
+      path: '/listener',
+      name: 'listener',
+      component: () => import('../views/ListenerView.vue'),
+    },
   ],
 })
 
