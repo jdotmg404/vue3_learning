@@ -4,6 +4,7 @@ import { ElMessage } from 'element-plus'
 import EventParaExample from '@/views/component-deep-learning/event/components/EventParaExample.vue'
 import { ref } from 'vue'
 import EventDefinitionExample from '@/views/component-deep-learning/event/components/EventDefinitionExample.vue'
+import EventVerifyExample from '@/views/component-deep-learning/event/components/EventVerifyExample.vue'
 
 const handle = () => {
   ElMessage.warning('点击了事件')
@@ -45,6 +46,13 @@ function resetCount() {
 function resetCount1() {
   count1.value = 0
   ElMessage.info('计数已重置')
+}
+
+function handleClick() {
+  ElMessage.success('点击了按钮')
+}
+function handleSubmit(data: { email: string; password: string }) {
+  ElMessage.success(`email: ${data.email} - password: ${data.password} `)
 }
 </script>
 
@@ -95,6 +103,11 @@ function resetCount1() {
         @increase-multi="increaseCountMulti1"
         @reset="resetCount1"
       ></EventDefinitionExample>
+    </div>
+
+    <h2>4-事件校验</h2>
+    <div>
+      <EventVerifyExample @click="handleClick" @submit="handleSubmit"></EventVerifyExample>
     </div>
   </div>
 </template>
