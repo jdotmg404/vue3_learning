@@ -51,8 +51,7 @@ const navList = [
 }
 
 /* 悬停及激活状态 */
-.nav-item:hover,
-.nav-item.router-link-active {
+.nav-item:hover {
   color: #42b983;
   background-color: #f9f9f9;
   border-bottom: 3px solid #42b983;

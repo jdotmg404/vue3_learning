@@ -32,11 +32,6 @@ body {
   overflow-x: hidden;
 }
 
-.content-container {
-  width: 100%;
-  text-align: left;
-}
-
 h1 {
   margin-bottom: 16px;
 }
@@ -53,11 +48,6 @@ ul {
 }
 li {
   margin-bottom: 8px;
-}
-
-.counter-section,
-.info-section {
-  margin-top: 32px;
 }
 
 hr {

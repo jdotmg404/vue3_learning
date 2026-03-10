@@ -11,8 +11,7 @@ const route = useRoute()
 // 获取当前父路由下的所有子路由，过滤出需要显示的tab
 const tabList = computed(() => {
   const parentRoute = router.getRoutes().find((r) => r.path === props.parentPath)
-  const res = parentRoute?.children || []
-  return res
+  return parentRoute?.children || []
 })
 
 // 从完整路径中提取子路由路径
