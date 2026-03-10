@@ -44,9 +44,8 @@ const tabs = { Home, Posts, Archive }
 
   <h2>2-动态组件</h2>
   <div class="demo">
-    <!-- 修复：遍历对象用 (value, key) 或直接用 Object.keys -->
     <el-button
-      v-for="(_, name) in tabs"
+      v-for="name in Object.keys(tabs)"
       :key="name"
       :class="['tab-button', { active: currentTab === name }]"
       @click="currentTab = name"
