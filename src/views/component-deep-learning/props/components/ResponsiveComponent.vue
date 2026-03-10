@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { toRefs, watch } from 'vue'
+import { watch } from 'vue'
 
 const { count, message } = defineProps<{
   count?: number

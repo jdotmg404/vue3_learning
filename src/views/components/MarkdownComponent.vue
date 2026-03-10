@@ -108,6 +108,7 @@ const codeBlockRenderer = (
 <style>
 .markdown-container {
   margin-top: 1rem;
+  padding-left: 1rem;
 }
 
 /* 代码块容器 */
