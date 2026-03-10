@@ -130,7 +130,7 @@ const router = createRouter({
           meta: {
             title: '注册',
           },
-          component: () => import('@/views/component-deep-learning/RegisterView.vue'),
+          component: () => import('@/views/component-deep-learning/register/Index.vue'),
         },
         {
           path: 'props',
@@ -138,7 +138,7 @@ const router = createRouter({
           meta: {
             title: 'props',
           },
-          component: () => import('@/views/component-deep-learning/PropsView.vue'),
+          component: () => import('@/views/component-deep-learning/props/Index.vue'),
         },
       ],
     },

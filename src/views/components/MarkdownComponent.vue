@@ -7,9 +7,9 @@ import 'katex/dist/katex.min.css'
 import { VueMarkdown } from '@crazydos/vue-markdown'
 import { createHighlighter, type Highlighter } from 'shiki'
 
-// 定义 props
+// 定义 props，支持传入 markdown 字符串或已加载的 markdown 内容
 defineProps<{
-  markdown: string
+  markdown?: string
 }>()
 
 // 初始化语法高亮器
@@ -24,6 +24,8 @@ onMounted(async () => {
       langs: [
         'javascript',
         'typescript',
+        'vue',
+        'vue-html',
         'python',
         'java',
         'cpp',
@@ -33,10 +35,12 @@ onMounted(async () => {
         'sql',
         'html',
         'css',
+        'scss',
         'json',
         'yaml',
         'shellscript',
         'bash',
+        'xml',
       ],
     })
     isHighlighterReady.value = true
@@ -85,7 +89,7 @@ const codeBlockRenderer = (
 <template>
   <div class="markdown-container">
     <VueMarkdown
-      :markdown="markdown"
+      :markdown="markdown || ''"
       :remark-plugins="[remarkGfm, remarkMath]"
       :rehype-plugins="[rehypeKatex]"
     >

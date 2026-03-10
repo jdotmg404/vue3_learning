@@ -64,7 +64,7 @@ const handleTabClick = (pane: TabsPaneContext) => {
 
 <template>
   <div>
-    <ElTabs v-model="activeTab" @tabClick="handleTabClick">
+    <ElTabs v-model="activeTab" @tab-click="handleTabClick">
       <ElTabPane
         v-for="item in tabList"
         :key="item.path"
