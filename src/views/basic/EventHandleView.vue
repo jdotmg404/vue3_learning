@@ -65,26 +65,26 @@ function onCtrlClick(e: Event) {
     <h1>事件处理</h1>
     <div>
       <h2>1-内联事件处理器</h2>
-      <el-button @click="count++">count++</el-button>
+      <ElButton @click="count++">count++</ElButton>
       <p>Count is: {{ count }}</p>
     </div>
     <div>
       <h2>2-方法事件处理器</h2>
-      <el-button @click="greet">Greet</el-button>
+      <ElButton @click="greet">Greet</ElButton>
     </div>
     <div>
       <h2>3-在内联处理器中调用方法</h2>
-      <el-button @click="say('hello')">Say hello</el-button>
-      <el-button @click="say('bye')">Say bye</el-button>
+      <ElButton @click="say('hello')">Say hello</ElButton>
+      <ElButton @click="say('bye')">Say bye</ElButton>
     </div>
     <div>
       <h2>4-在内联事件处理器中访问事件参数</h2>
       <!-- 使用特殊的 $event 变量 -->
-      <el-button @click="warn('Form cannot be submitted yet.', $event)">Submit</el-button>
+      <ElButton @click="warn('Form cannot be submitted yet.', $event)">Submit</ElButton>
 
       <!-- 使用内联箭头函数 -->
-      <el-button @click="(event: Event) => warn('Form cannot be submitted yet.', event)"
-        >Submit</el-button
+      <ElButton @click="(event: Event) => warn('Form cannot be submitted yet.', event)"
+        >Submit</ElButton
       >
     </div>
 
@@ -123,25 +123,25 @@ function onCtrlClick(e: Event) {
     <div>
       <h2>6-按键修饰符</h2>
       <!-- 仅在 `key` 为 `Enter` 时调用 `submit` -->
-      <el-input style="width: 200px" @keyup.enter="onSubmit" label="提交" />
+      <ElInput style="width: 200px" @keyup.enter="onSubmit" label="提交" />
 
       <!-- 仅会在 $event.key 为 'PageDown' 时调用 onPageDown 事件处理。 -->
-      <el-input style="width: 200px" @keyup.page-down="onPageDown" label="提交" />
+      <ElInput style="width: 200px" @keyup.page-down="onPageDown" label="提交" />
 
       <!-- Alt + Enter -->
-      <el-input @keyup.alt.enter="clear" />
+      <ElInput @keyup.alt.enter="clear" />
 
       <!-- Ctrl + 点击 -->
       <div @click.ctrl="doSomething">Do something</div>
 
       <!-- 当按下 Ctrl 时，即使同时按下 Alt 或 Shift 也会触发 -->
-      <el-button @click.ctrl="onClick">A</el-button>
+      <ElButton @click.ctrl="onClick">A</ElButton>
 
       <!-- 仅当按下 Ctrl 且未按任何其他键时才会触发 -->
-      <el-button @click.ctrl.exact="onCtrlClick">A</el-button>
+      <ElButton @click.ctrl.exact="onCtrlClick">A</ElButton>
 
       <!-- 仅当没有按下任何系统按键时触发 -->
-      <el-button @click.exact="onClick">A</el-button>
+      <ElButton @click.exact="onClick">A</ElButton>
     </div>
 
     <div>

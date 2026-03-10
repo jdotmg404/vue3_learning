@@ -119,46 +119,46 @@ watch(id, (newId) => {
     <h2>1-基本示例</h2>
     <p>
       Ask a yes/no question:
-      <el-input style="width: 200px" v-model="question" :disabled="loading" />
+      <ElInput style="width: 200px" v-model="question" :disabled="loading" />
     </p>
     <p>Answer: {{ answer }}</p>
 
     <h2>2-侦听数据源类型</h2>
     <p>x is {{ x }}, y is {{ y }}</p>
-    <el-button @click="x++">x++</el-button>
-    <el-button @click="x--">x--</el-button>
-    <el-button @click="y++">y++</el-button>
-    <el-button @click="y--">y--</el-button>
+    <ElButton @click="x++">x++</ElButton>
+    <ElButton @click="x--">x--</ElButton>
+    <ElButton @click="y++">y++</ElButton>
+    <ElButton @click="y--">y--</ElButton>
 
     <h2>3-监听对象内属性</h2>
     <div>
       <p>obj.count is {{ obj.count }}</p>
-      <el-button @click="obj.count++">obj.count++</el-button>
-      <el-button @click="obj.count--">obj.count--</el-button>
+      <ElButton @click="obj.count++">obj.count++</ElButton>
+      <ElButton @click="obj.count--">obj.count--</ElButton>
     </div>
 
     <h2>4-深度监听</h2>
     <div>
       <p>obj.subObj.count is {{ obj.subObj.count }}</p>
-      <el-button @click="obj.subObj.count++">obj.subObj.count++</el-button>
-      <el-button @click="obj.subObj.count--">obj.subObj.count--</el-button>
-      <el-button @click="changeSubObj">changeSubObj</el-button>
+      <ElButton @click="obj.subObj.count++">obj.subObj.count++</ElButton>
+      <ElButton @click="obj.subObj.count--">obj.subObj.count--</ElButton>
+      <ElButton @click="changeSubObj">changeSubObj</ElButton>
     </div>
 
     <h2>5-即时回调</h2>
     <div>
-      <el-input style="width: 200px" v-model="source" placeholder="请输入内容" />
+      <ElInput style="width: 200px" v-model="source" placeholder="请输入内容" />
     </div>
 
     <h2>6-一次性侦听器</h2>
     <div>
-      <el-input style="width: 200px" v-model="source" placeholder="请输入内容" />
+      <ElInput style="width: 200px" v-model="source" placeholder="请输入内容" />
     </div>
 
     <h2>7-watchEffect</h2>
     <div>
       <p>todoId is {{ todoId }}</p>
-      <el-button @click="todoId++">todoId++</el-button>
+      <ElButton @click="todoId++">todoId++</ElButton>
     </div>
 
     <h2>8-副作用清理</h2>

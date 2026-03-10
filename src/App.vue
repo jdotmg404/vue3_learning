@@ -6,13 +6,13 @@ import Navbar from '@/views/components/Navbar.vue'
 <template>
   <div class="layout">
     <header class="header">
-      <navbar />
+      <Navbar />
     </header>
     <main class="content">
       <RouterView />
     </main>
     <footer class="footer">
-      <el-backtop :right="100" :bottom="100" />
+      <ElBacktop :right="100" :bottom="100" />
     </footer>
   </div>
 </template>

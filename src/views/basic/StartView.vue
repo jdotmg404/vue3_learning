@@ -10,7 +10,7 @@ import CounterButton from '@/views/components/CounterButton.vue'
     <p>这是一个用于学习 Vue3 基础知识的演示项目</p>
     <div class="counter-section">
       <h2>计数器示例</h2>
-      <counter-button />
+      <CounterButton />
     </div>
   </div>
 </template>

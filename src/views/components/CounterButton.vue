@@ -7,9 +7,9 @@ const count = ref(0)
   <div class="counter-container">
     <span>计数器：{{ count }}</span>
     <div class="button-group">
-      <el-button class="btn" type="primary" @click="count++">自增</el-button>
-      <el-button class="btn" type="danger" @click="count--">自减</el-button>
-      <el-button class="btn" type="warning" @click="count = 0">重置</el-button>
+      <ElButton class="btn" type="primary" @click="count++">自增</ElButton>
+      <ElButton class="btn" type="danger" @click="count--">自减</ElButton>
+      <ElButton class="btn" type="warning" @click="count = 0">重置</ElButton>
     </div>
     <div class="info-box">
       <p>这是一个使用 ref 实现的响应式计数器</p>

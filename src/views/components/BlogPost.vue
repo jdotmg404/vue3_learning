@@ -8,7 +8,7 @@ defineEmits(['enlarge-text'])
 <template>
   <div>
     <h4>{{ title }}</h4>
-    <el-button @click="$emit('enlarge-text')">Enlarge text</el-button>
+    <ElButton @click="$emit('enlarge-text')">Enlarge text</ElButton>
   </div>
 </template>
 

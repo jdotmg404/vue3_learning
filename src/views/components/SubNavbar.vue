@@ -64,14 +64,14 @@ const handleTabClick = (pane: TabsPaneContext) => {
 
 <template>
   <div>
-    <el-tabs v-model="activeTab" @tabClick="handleTabClick">
-      <el-tab-pane
+    <ElTabs v-model="activeTab" @tabClick="handleTabClick">
+      <ElTabPane
         v-for="item in tabList"
         :key="item.path"
         :label="item.meta?.title"
         :name="item.path"
-      ></el-tab-pane>
-    </el-tabs>
+      ></ElTabPane>
+    </ElTabs>
   </div>
 </template>
 

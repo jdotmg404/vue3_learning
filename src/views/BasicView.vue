@@ -4,9 +4,9 @@ import SubNavbar from '@/views/components/SubNavbar.vue'
 
 <template>
   <div>
-    <sub-navbar :parent-path="'/basic'" />
+    <SubNavbar :parent-path="'/basic'" />
     <div class="content-container">
-      <router-view />
+      <RouterView />
     </div>
   </div>
 </template>

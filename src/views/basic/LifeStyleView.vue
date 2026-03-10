@@ -5,7 +5,7 @@ import imageUrl from '@/assets/images/Vue3生命周期.png'
 <template>
   <div>
     <h1>生命周期</h1>
-    <el-image :src="imageUrl" style="width: 800px"></el-image>
+    <ElImage :src="imageUrl" style="width: 800px"></ElImage>
   </div>
 </template>
 

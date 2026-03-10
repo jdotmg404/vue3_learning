@@ -35,4 +35,15 @@ export default defineConfigWithVueTs(
   ...pluginOxlint.buildFromOxlintConfigFile('.oxlintrc.json'),
 
   skipFormatting,
+
+  // 强制在模板中使用 PascalCase 组件名
+  {
+    name: 'app/component-casing',
+    files: ['**/*.vue'],
+    rules: {
+      'vue/component-name-in-template-casing': ['error', 'PascalCase', {
+        registeredComponentsOnly: false,
+      }],
+    },
+  },
 )

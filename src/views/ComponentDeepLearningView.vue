@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import SubNavbar from '@/views/components/SubNavbar.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
   <div>
-    <sub-navbar :parent-path="'/componentDeepLearning'" />
+    <SubNavbar :parent-path="'/componentDeepLearning'" />
     <div class="content-container">
-      <router-view />
+      <RouterView />
     </div>
   </div>
 </template>

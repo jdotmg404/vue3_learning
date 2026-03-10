@@ -30,7 +30,7 @@ onMounted(() => {
 <template>
   <nav class="navbar">
     <!-- 路由跳转链接 -->
-    <router-link
+    <RouterLink
       v-for="itm in navList"
       :key="itm.path"
       :to="itm.path"
@@ -40,7 +40,7 @@ onMounted(() => {
       exact-active-class=""
     >
       {{ itm.name }}
-    </router-link>
+    </RouterLink>
   </nav>
 </template>
 

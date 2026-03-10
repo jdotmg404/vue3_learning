@@ -34,22 +34,22 @@ const tabs = { Home, Posts, Archive }
   <h1>组件基础</h1>
   <h2>1-基础示例</h2>
   <div :style="{ fontSize: postFontSize + 'em' }">
-    <blog-post
+    <BlogPost
       v-for="post in posts"
       :title="post.title"
       :key="post.id"
       @enlarge-text="postFontSize += 0.1"
-    ></blog-post>
+    ></BlogPost>
   </div>
 
   <h2>2-动态组件</h2>
   <div class="demo">
-    <el-button
+    <ElButton
       v-for="name in Object.keys(tabs)"
       :key="name"
       :class="['tab-button', { active: currentTab === name }]"
       @click="currentTab = name"
-      >{{ name }}</el-button
+      >{{ name }}</ElButton
     >
 
     <component :is="tabs[currentTab]" class="tab"></component>

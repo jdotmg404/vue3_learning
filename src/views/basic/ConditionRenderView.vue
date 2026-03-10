@@ -21,16 +21,16 @@ const ok = ref(true)
     <br />
     <h1>v-else</h1>
     <div>
-      <el-button @click="awesome = !awesome">change awesome</el-button>
+      <ElButton @click="awesome = !awesome">change awesome</ElButton>
       <div v-if="awesome">Vue is awesome!</div>
       <div v-else>Oh no 😢</div>
     </div>
     <br />
     <h1>v-else-if</h1>
     <div>
-      <el-button @click="type = 'A'">type = 'A'</el-button>
-      <el-button @click="type = 'B'">type = 'B'</el-button>
-      <el-button @click="type = 'C'">type = 'C'</el-button>
+      <ElButton @click="type = 'A'">type = 'A'</ElButton>
+      <ElButton @click="type = 'B'">type = 'B'</ElButton>
+      <ElButton @click="type = 'C'">type = 'C'</ElButton>
       <div v-if="type === 'A'">A</div>
       <div v-else-if="type === 'B'">B</div>
       <div v-else>C</div>

@@ -86,7 +86,7 @@ const codeBlockRenderer = (
 
 <template>
   <div class="markdown-container">
-    <vue-markdown
+    <VueMarkdown
       :markdown="markdown"
       :remark-plugins="[remarkGfm, remarkMath]"
       :rehype-plugins="[rehypeKatex]"
@@ -99,7 +99,7 @@ const codeBlockRenderer = (
         />
         <code v-else class="inline-code">{{ content }}</code>
       </template>
-    </vue-markdown>
+    </VueMarkdown>
   </div>
 </template>
 

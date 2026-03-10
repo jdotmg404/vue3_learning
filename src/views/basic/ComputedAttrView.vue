@@ -67,8 +67,8 @@ const alwaysSmallOptional = computed({
     <p>lastName: {{ lastName }}</p>
     <p>fullName: {{ fullName }}</p>
     <div>
-      <el-button @click="setFullName">设置fullName</el-button>
-      <el-button @click="resetFullName">重置fullName</el-button>
+      <ElButton @click="setFullName">设置fullName</ElButton>
+      <ElButton @click="resetFullName">重置fullName</ElButton>
     </div>
 
     <br />
@@ -77,8 +77,8 @@ const alwaysSmallOptional = computed({
     <p>alwaysSmall: {{ alwaysSmall }}</p>
     <p>alwaysSmallOptional: {{ alwaysSmallOptional }}</p>
     <div>
-      <el-button @click="count++">count++</el-button>
-      <el-button @click="count--">count--</el-button>
+      <ElButton @click="count++">count++</ElButton>
+      <ElButton @click="count--">count--</ElButton>
     </div>
 
     <br />

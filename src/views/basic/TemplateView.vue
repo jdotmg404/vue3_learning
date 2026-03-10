@@ -38,37 +38,37 @@ const eventName = ref('click')
 
 <template>
   <!--  2-模板语法  -->
-  <el-tabs
+  <ElTabs
     v-model="activeName"
     class="content-container"
     @tab-click="handleClick"
     style="width: 100%"
   >
-    <el-tab-pane label="文本插值" name="first"
+    <ElTabPane label="文本插值" name="first"
       ><div>
         <p>使用文本插值渲染HTML：</p>
         <p>{{ message }}</p>
-      </div></el-tab-pane
+      </div></ElTabPane
     >
-    <el-tab-pane label="原始HTML" name="second">
+    <ElTabPane label="原始HTML" name="second">
       <div>
         <p>使用v-html指令渲染HTML：</p>
         <span v-html="rawHtml"></span>
       </div>
-    </el-tab-pane>
-    <el-tab-pane label="Attribute绑定" name="third">
+    </ElTabPane>
+    <ElTabPane label="Attribute绑定" name="third">
       <p>响应式地绑定一个 attribute 属性：</p>
       <div>
         <div>
-          切换按钮可用状态：<el-checkbox v-model="isButtonDisabled" />
-          <el-button class="btn" :disabled="isButtonDisabled">按钮</el-button>
+          切换按钮可用状态：<ElCheckbox v-model="isButtonDisabled" />
+          <ElButton class="btn" :disabled="isButtonDisabled">按钮</ElButton>
         </div>
       </div>
       <div>
         <div v-bind="objectOfAttrs"></div>
       </div>
-    </el-tab-pane>
-    <el-tab-pane label="使用JavaScript表达式" name="four">
+    </ElTabPane>
+    <ElTabPane label="使用JavaScript表达式" name="four">
       <p>使用 JavaScript 表达式：</p>
       <div>
         <p>四则运算：{{ number + 1 }}</p>
@@ -77,8 +77,8 @@ const eventName = ref('click')
         <div :id="`list-${id}`" style="height: 100px; width: 200px; border: 1px solid red"></div>
         <div>使用函数表达式：{{ timeFormat(Date.now()) }}</div>
       </div>
-    </el-tab-pane>
-    <el-tab-pane label="使用v-xx内置指令" name="five">
+    </ElTabPane>
+    <ElTabPane label="使用v-xx内置指令" name="five">
       <div>
         <p>1-内置指令 v-if：</p>
         <p v-if="seen">Now you see me</p>
@@ -89,7 +89,7 @@ const eventName = ref('click')
       </div>
       <div>
         <p>3-监听DOM事件</p>
-        <el-button @click="doSomething">点击将在控制台打印</el-button>
+        <ElButton @click="doSomething">点击将在控制台打印</ElButton>
       </div>
       <div>
         <p>4-动态参数</p>
@@ -97,7 +97,7 @@ const eventName = ref('click')
           <a :[attributeName]="href">百度</a>
         </div>
         <div>
-          <el-button @[eventName]="doSomething">点击将在控制台打印</el-button>
+          <ElButton @[eventName]="doSomething">点击将在控制台打印</ElButton>
         </div>
         <div>
           <p>注意事项：</p>
@@ -128,10 +128,10 @@ const eventName = ref('click')
       </div>
       <div>
         <p>5-修饰符：</p>
-        <el-image :src="imageUrl"></el-image>
+        <ElImage :src="imageUrl"></ElImage>
       </div>
-    </el-tab-pane>
-  </el-tabs>
+    </ElTabPane>
+  </ElTabs>
 </template>
 
 <style scoped></style>

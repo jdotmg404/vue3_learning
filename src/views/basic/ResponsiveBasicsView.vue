@@ -82,24 +82,24 @@ ${codeExample1}
     <div>
       <p>1-使用ref实现基础类型响应式</p>
       <p>count值: {{ count }}</p>
-      <el-button class="btn" type="primary" @click="increment">自增</el-button>
-      <markdown-component :markdown="text"></markdown-component>
+      <ElButton class="btn" type="primary" @click="increment">自增</ElButton>
+      <MarkdownComponent :markdown="text"></MarkdownComponent>
     </div>
     <div>
       <p>2-使用ref实现对象响应式</p>
       <p>obj.nested.count: {{ obj.nested.count }}</p>
       <p>obj.arr: {{ obj.arr }}</p>
-      <el-button class="btn" type="primary" @click="mutateDeeply">尝试一下</el-button>
-      <el-button class="btn" type="primary" @click="reset">重置</el-button>
+      <ElButton class="btn" type="primary" @click="mutateDeeply">尝试一下</ElButton>
+      <ElButton class="btn" type="primary" @click="reset">重置</ElButton>
     </div>
     <hr />
     <h2>reactive()</h2>
     <div>
       <p>1-使用reactive实现对象响应式</p>
       <p>state.count: {{ state.count }}</p>
-      <el-button class="btn" type="primary" @click="incrementState">自增</el-button>
-      <el-button class="btn" type="primary" @click="decrementState">自减</el-button>
-      <el-button class="btn" type="primary" @click="resetState">重置</el-button>
+      <ElButton class="btn" type="primary" @click="incrementState">自增</ElButton>
+      <ElButton class="btn" type="primary" @click="decrementState">自减</ElButton>
+      <ElButton class="btn" type="primary" @click="resetState">重置</ElButton>
       <p>注意：</p>
       <p>1.reactive()返回的是一个原始对象的的Proxy，它和原始对象是不相等的</p>
       <p>
@@ -110,7 +110,7 @@ ${codeExample1}
         3.为保证访问代理的一致性，对同一个原始对象调用 reactive()
         会总是返回同样的代理对象，而对一个已存在的代理对象调用 reactive() 会返回其本身
       </p>
-      <markdown-component :markdown="text1"></markdown-component>
+      <MarkdownComponent :markdown="text1"></MarkdownComponent>
       <h3>reactive()的局限性</h3>
       <div></div>
     </div>
