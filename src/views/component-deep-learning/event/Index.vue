@@ -3,12 +3,14 @@ import EventExample from '@/views/component-deep-learning/event/components/Event
 import { ElMessage } from 'element-plus'
 import EventParaExample from '@/views/component-deep-learning/event/components/EventParaExample.vue'
 import { ref } from 'vue'
+import EventDefinitionExample from '@/views/component-deep-learning/event/components/EventDefinitionExample.vue'
 
 const handle = () => {
   ElMessage.warning('点击了事件')
 }
 
 const count = ref(0)
+const count1 = ref(0)
 
 // 接收单个参数
 function increaseCount(n: number) {
@@ -16,10 +18,33 @@ function increaseCount(n: number) {
   ElMessage.error(`增加了 ${n} 点`)
 }
 
+// 接收单个参数
+function increaseCount1(n: number) {
+  count1.value += n
+  ElMessage.success(`增加了 ${n} 点，当前计数：${count.value}`)
+}
+
 // 接收多个参数
 function increaseCountMulti(a: number, b: number, c: number) {
   ElMessage.success(`收到参数: a=${a}, b=${b}, c=${c}`)
   count.value += a + b + c
+}
+
+function increaseCountMulti1(a: number, b: number, c: number) {
+  const sum = a + b + c
+  count1.value += sum
+  ElMessage.success(`收到参数: a=${a}, b=${b}, c=${c}，总和=${sum}，当前计数：${count.value}`)
+}
+
+// 无参数
+function resetCount() {
+  count.value = 0
+  ElMessage.info('计数已重置')
+}
+
+function resetCount1() {
+  count1.value = 0
+  ElMessage.info('计数已重置')
 }
 </script>
 
@@ -34,7 +59,9 @@ function increaseCountMulti(a: number, b: number, c: number) {
 
     <h2>2-事件参数</h2>
     <div>
-      <p>当前计数：{{ count }}</p>
+      <p>
+        <span>当前计数：{{ count }}</span> <ElButton @click="resetCount">重置</ElButton>
+      </p>
     </div>
     <div>
       <!-- 单个参数 -->
@@ -56,6 +83,18 @@ function increaseCountMulti(a: number, b: number, c: number) {
           }
         "
       ></EventParaExample>
+    </div>
+    <h2>3-声明触发的事件</h2>
+    <div>
+      <p>当前计数：{{ count1 }}</p>
+    </div>
+    <div>
+      <!-- 单个参数 -->
+      <EventDefinitionExample
+        @increase-by="increaseCount1"
+        @increase-multi="increaseCountMulti1"
+        @reset="resetCount1"
+      ></EventDefinitionExample>
     </div>
   </div>
 </template>
