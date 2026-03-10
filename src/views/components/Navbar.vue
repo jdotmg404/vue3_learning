@@ -2,9 +2,11 @@
 defineOptions({
   name: 'AppNavbar',
 })
-import { RouterLink, useRoute } from 'vue-router'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
+import { onMounted } from 'vue'
 
 const route = useRoute()
+const router = useRouter()
 
 const navList = [
   { name: '基础', path: '/basic' },
@@ -15,6 +17,14 @@ const navList = [
 const isActive = (path: string) => {
   return route.path.startsWith(path)
 }
+
+// 页面首次加载时，如果没有匹配的路由，默认跳转到第一个 tab
+onMounted(() => {
+  const isMatch = navList.some((item) => route.path.startsWith(item.path))
+  if (!isMatch && navList.length > 0) {
+    router.replace(navList[0]?.path)
+  }
+})
 </script>
 
 <template>
