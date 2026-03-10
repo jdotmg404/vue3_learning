@@ -140,6 +140,14 @@ const router = createRouter({
           },
           component: () => import('@/views/component-deep-learning/props/Index.vue'),
         },
+        {
+          path: 'event',
+          name: 'event',
+          meta: {
+            title: '事件',
+          },
+          component: () => import('@/views/component-deep-learning/event/Index.vue'),
+        },
       ],
     },
   ],

@@ -15,7 +15,7 @@ const myObject = reactive({
 </script>
 
 <template>
-  <div class="content-container">
+  <div>
     <h1>v-for</h1>
     <div>
       <div>1-使用别名</div>

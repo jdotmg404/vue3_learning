@@ -28,7 +28,7 @@ const styleObject = reactive({
 
 <template>
   <!-- Class 与 Style 绑定 -->
-  <div class="content-container">
+  <div>
     <h1>Class 与 Style 绑定</h1>
     <p>1-绑定对象</p>
     <div>

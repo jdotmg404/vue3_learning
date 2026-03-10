@@ -55,7 +55,7 @@ const alwaysSmallOptional = computed({
 
 <template>
   <!-- 计算属性 -->
-  <div class="content-container">
+  <div>
     <h1>计算属性</h1>
     <p>1-基础示例</p>
     <p>Has published books: {{ publishedBooksMessage }}</p>

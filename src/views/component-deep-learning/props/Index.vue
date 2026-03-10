@@ -77,8 +77,4 @@ const disabledArr = ref({
   </div>
 </template>
 
-<style scoped>
-.content-container {
-  padding-left: 20px;
-}
-</style>
+<style scoped></style>

@@ -38,12 +38,7 @@ const eventName = ref('click')
 
 <template>
   <!--  2-模板语法  -->
-  <ElTabs
-    v-model="activeName"
-    class="content-container"
-    @tab-click="handleClick"
-    style="width: 100%"
-  >
+  <ElTabs v-model="activeName" @tab-click="handleClick" style="width: 100%">
     <ElTabPane label="文本插值" name="first"
       ><div>
         <p>使用文本插值渲染HTML：</p>

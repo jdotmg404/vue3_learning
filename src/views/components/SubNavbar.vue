@@ -63,8 +63,8 @@ const handleTabClick = (pane: TabsPaneContext) => {
 </script>
 
 <template>
-  <div>
-    <ElTabs v-model="activeTab" @tab-click="handleTabClick">
+  <div class="sub-navbar-container">
+    <ElTabs v-model="activeTab" @tab-click="handleTabClick" class="fixed-tabs">
       <ElTabPane
         v-for="item in tabList"
         :key="item.path"
@@ -75,4 +75,23 @@ const handleTabClick = (pane: TabsPaneContext) => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.sub-navbar-container {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0 16px;
+}
+
+.fixed-tabs {
+  width: 100%;
+}
+
+.fixed-tabs :deep(.el-tabs__header) {
+  margin-bottom: 0;
+}
+</style>

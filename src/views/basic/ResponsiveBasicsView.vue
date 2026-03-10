@@ -76,7 +76,7 @@ ${codeExample1}
 
 <template>
   <!-- 响应式基础 -->
-  <div class="content-container">
+  <div>
     <h1>声明式响应</h1>
     <h2>ref()</h2>
     <div>
