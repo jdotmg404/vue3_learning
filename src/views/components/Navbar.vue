@@ -5,19 +5,8 @@ defineOptions({
 import { RouterLink } from 'vue-router'
 
 const navList = [
-  { name: '开始页面', path: '/' },
-  { name: '模板语法', path: '/template' },
-  { name: '响应式基础', path: '/responsiveBasics' },
-  { name: '计算属性', path: '/computedAttr' },
-  { name: 'Class 与 Style 绑定', path: '/bind' },
-  { name: '条件渲染', path: '/conditionRender' },
-  { name: '列表渲染', path: '/listRender' },
-  { name: '事件处理', path: '/eventHandle' },
-  { name: '表单输入绑定', path: '/formInputBind' },
-  { name: '侦听器', path: '/listener' },
-  { name: '模板引用', path: '/templateReference' },
-  { name: '组件基础', path: '/component' },
-  { name: '生命周期', path: '/lifeStyle' },
+  { name: '基础', path: '/basic' },
+  { name: '深入组件', path: '/componentDeepLearning' },
 ]
 </script>
 

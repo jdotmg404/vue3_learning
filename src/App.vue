@@ -90,9 +90,7 @@ hr {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 16px;
-  padding-top: 76px;
-  padding-bottom: 76px;
+  padding: 76px 16px;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: left;
