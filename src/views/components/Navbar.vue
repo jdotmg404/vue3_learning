@@ -2,18 +2,31 @@
 defineOptions({
   name: 'AppNavbar',
 })
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
+
+const route = useRoute()
 
 const navList = [
   { name: '基础', path: '/basic' },
   { name: '深入组件', path: '/componentDeepLearning' },
 ]
+
+// 判断导航项是否激活（使用路径前缀匹配）
+const isActive = (path: string) => {
+  return route.path.startsWith(path)
+}
 </script>
 
 <template>
   <nav class="navbar">
     <!-- 路由跳转链接 -->
-    <router-link v-for="itm in navList" :key="itm.path" :to="itm.path" class="nav-item">
+    <router-link
+      v-for="itm in navList"
+      :key="itm.path"
+      :to="itm.path"
+      class="nav-item"
+      :class="{ active: isActive(itm.path) }"
+    >
       {{ itm.name }}
     </router-link>
   </nav>
@@ -50,8 +63,14 @@ const navList = [
   border-bottom: 3px solid transparent;
 }
 
-/* 悬停及激活状态 */
+/* 悬停状态 */
 .nav-item:hover {
+  color: #42b983;
+  background-color: #f9f9f9;
+}
+
+/* 激活状态 */
+.nav-item.active {
   color: #42b983;
   background-color: #f9f9f9;
   border-bottom: 3px solid #42b983;

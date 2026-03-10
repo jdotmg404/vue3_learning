@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router'
 import { computed, ref, watch } from 'vue'
+import type { TabsPaneContext } from 'element-plus'
 const props = defineProps<{
   parentPath: string
 }>()
@@ -37,7 +38,7 @@ watch(
 )
 
 // 点击 Tab 切换路由
-const handleTabClick = (pane: any) => {
+const handleTabClick = (pane: TabsPaneContext) => {
   router.push(props.parentPath + '/' + pane.paneName)
 }
 </script>
