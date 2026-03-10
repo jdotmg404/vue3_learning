@@ -130,7 +130,7 @@ const router = createRouter({
           meta: {
             title: '注册',
           },
-          component: () => import('@/views/component-deep-learning/register/Index.vue'),
+          component: () => import('@/views/component-deep-learning/register/IndexView.vue'),
         },
         {
           path: 'props',
@@ -138,7 +138,7 @@ const router = createRouter({
           meta: {
             title: 'props',
           },
-          component: () => import('@/views/component-deep-learning/props/Index.vue'),
+          component: () => import('@/views/component-deep-learning/props/IndexView.vue'),
         },
         {
           path: 'event',
@@ -146,7 +146,15 @@ const router = createRouter({
           meta: {
             title: '事件',
           },
-          component: () => import('@/views/component-deep-learning/event/Index.vue'),
+          component: () => import('@/views/component-deep-learning/event/IndexView.vue'),
+        },
+        {
+          path: 'componentVModel',
+          name: 'componentVModel',
+          meta: {
+            title: '组件 v-model',
+          },
+          component: () => import('@/views/component-deep-learning/component-v-model/IndexView.vue'),
         },
       ],
     },
