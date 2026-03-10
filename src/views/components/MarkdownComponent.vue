@@ -19,7 +19,7 @@ const isHighlighterReady = ref(false)
 // 异步初始化 highlighter
 onMounted(async () => {
   try {
-    const h = await createHighlighter({
+    highlighter.value = await createHighlighter({
       themes: ['github-dark'],
       langs: [
         'javascript',
@@ -39,7 +39,6 @@ onMounted(async () => {
         'bash',
       ],
     })
-    highlighter.value = h
     isHighlighterReady.value = true
   } catch (error) {
     console.error('Failed to initialize Shiki:', error)
@@ -72,11 +71,10 @@ const codeBlockRenderer = (
   }
 
   try {
-    const html = highlighter.value.codeToHtml(safeCode, {
+    return highlighter.value.codeToHtml(safeCode, {
       lang: safeLang,
       theme: 'github-dark',
     })
-    return html
   } catch (error) {
     console.error('Failed to highlight code:', error)
     return `<pre><code>${escapeHtml(safeCode)}</code></pre>`
