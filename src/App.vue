@@ -30,6 +30,27 @@ body {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+  /* 始终显示滚动条轨道，防止滚动条出现导致布局抖动 */
+  overflow-y: scroll;
+}
+
+/* 自定义滚动条样式，使其更美观 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
 
 h1 {

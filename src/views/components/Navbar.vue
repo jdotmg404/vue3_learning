@@ -25,7 +25,9 @@ const isActive = (path: string) => {
       :key="itm.path"
       :to="itm.path"
       class="nav-item"
-      :class="{ active: isActive(itm.path) }"
+      :class="{ 'nav-active': isActive(itm.path) }"
+      active-class=""
+      exact-active-class=""
     >
       {{ itm.name }}
     </router-link>
@@ -46,7 +48,8 @@ const isActive = (path: string) => {
 
 .nav-item {
   /* 核心代码：平分剩余空间 */
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   line-height: 60px;
   display: flex;
   align-items: center;
@@ -55,24 +58,29 @@ const isActive = (path: string) => {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: all 0.3s;
+  transition:
+    color 0.3s,
+    background-color 0.3s,
+    border-color 0.3s;
   white-space: nowrap;
   overflow: hidden;
 
-  /* 添加侧边边框增加区分度（可选） */
+  /* 使用 box-sizing 确保边框不影响宽度 */
+  box-sizing: border-box;
+  /* 添加侧边边框增加区分度，始终保持 3px 高度 */
   border-bottom: 3px solid transparent;
 }
 
 /* 悬停状态 */
 .nav-item:hover {
-  color: #42b983;
+  color: var(--el-color-primary);
   background-color: #f9f9f9;
 }
 
 /* 激活状态 */
-.nav-item.active {
-  color: #42b983;
+.nav-item.nav-active {
+  color: var(--el-color-primary);
   background-color: #f9f9f9;
-  border-bottom: 3px solid #42b983;
+  border-bottom: 3px solid var(--el-color-primary);
 }
 </style>
