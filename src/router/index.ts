@@ -154,7 +154,16 @@ const router = createRouter({
           meta: {
             title: '组件 v-model',
           },
-          component: () => import('@/views/component-deep-learning/component-v-model/IndexView.vue'),
+          component: () =>
+            import('@/views/component-deep-learning/component-v-model/IndexView.vue'),
+        },
+        {
+          path: 'attr',
+          name: 'attr',
+          meta: {
+            title: '透传 Attributes',
+          },
+          component: () => import('@/views/component-deep-learning/attr/IndexView.vue'),
         },
       ],
     },
