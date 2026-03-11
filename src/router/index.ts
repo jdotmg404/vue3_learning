@@ -165,6 +165,14 @@ const router = createRouter({
           },
           component: () => import('@/views/component-deep-learning/attr/IndexView.vue'),
         },
+        {
+          path: 'slot',
+          name: 'slot',
+          meta: {
+            title: '插槽 Slots',
+          },
+          component: () => import('@/views/component-deep-learning/slots/IndexView.vue'),
+        },
       ],
     },
   ],

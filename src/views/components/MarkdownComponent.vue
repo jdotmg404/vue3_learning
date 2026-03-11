@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import rehypeRaw from 'rehype-raw'
 import 'katex/dist/katex.min.css'
 import { VueMarkdown } from '@crazydos/vue-markdown'
 import { createHighlighter, type Highlighter } from 'shiki'
@@ -91,7 +92,7 @@ const codeBlockRenderer = (
     <VueMarkdown
       :markdown="markdown || ''"
       :remark-plugins="[remarkGfm, remarkMath]"
-      :rehype-plugins="[rehypeKatex]"
+      :rehype-plugins="[rehypeRaw, rehypeKatex]"
     >
       <template #code="{ content, language, inline }">
         <div
