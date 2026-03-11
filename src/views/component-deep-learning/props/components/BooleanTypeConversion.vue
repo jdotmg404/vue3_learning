@@ -13,10 +13,10 @@ defineProps({
 
 <template>
   <div>
-    <ElButton :disabled="disabledA">按钮</ElButton>
-    <ElButton :disabled="disabledB">按钮</ElButton>
-    <ElButton :disabled="disabledC">按钮</ElButton>
-    <ElButton :disabled="disabledD">按钮</ElButton>
+    <ElButton :disabled="!!disabledA">按钮</ElButton>
+    <ElButton :disabled="!!disabledB">按钮</ElButton>
+    <ElButton :disabled="!!disabledC">按钮</ElButton>
+    <ElButton :disabled="!!disabledD">按钮</ElButton>
   </div>
 </template>
 

@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import type { TabsPaneContext } from 'element-plus'
 
-import * as Mock from 'mockjs'
+import { randomGuid } from '@/utils/random'
 import dayjs from 'dayjs'
 import imageUrl from '@/assets/images/directive.png'
 import avatorImage from '@/assets/images/middle_avator.jpg'
@@ -25,7 +25,7 @@ const objectOfAttrs = {
 }
 const number = ref(0)
 const ok = ref(true)
-const id = Mock.Random.guid()
+const id = randomGuid()
 const timeFormat = (str: number) => dayjs(str).format('YYYY-MM-DD HH:mm:ss')
 const seen = ref(true)
 const href = 'https://www.baidu.com'

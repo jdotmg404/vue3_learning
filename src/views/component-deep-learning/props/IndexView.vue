@@ -4,7 +4,7 @@ import exampleMD from './markdown/example.md?raw'
 import transferPropsDetail from './markdown/transferPropsDetail.md?raw'
 import { ref } from 'vue'
 import ResponsiveComponent from '@/views/component-deep-learning/props/components/ResponsiveComponent.vue'
-import mockjs from 'mockjs'
+import { randomInteger, randomCWord } from '@/utils/random'
 import PropVerifyCase from '@/views/component-deep-learning/props/components/PropVerifyCase.vue'
 import Person from '@/models/Person.ts'
 import BooleanTypeConversion from '@/views/component-deep-learning/props/components/BooleanTypeConversion.vue'
@@ -15,14 +15,14 @@ const props = ref({
 const definitionText = ref(exampleMD)
 
 const changeCount = () => {
-  props.value.count = mockjs.Random.integer(0, 100)
-  props.value.message = mockjs.Random.cword(5, 10)
+  props.value.count = randomInteger(0, 100)
+  props.value.message = randomCWord(5, 10)
 }
 
 const verifyProps = ref({
-  propA: mockjs.Random.integer(0, 100),
-  propB: mockjs.Random.integer(0, 100),
-  propC: mockjs.Random.cword(0, 100),
+  propA: randomInteger(0, 100),
+  propB: randomInteger(0, 100),
+  propC: randomCWord(0, 100),
   propD: null,
   // propE: null as unknown as number,
   propG: 'success',

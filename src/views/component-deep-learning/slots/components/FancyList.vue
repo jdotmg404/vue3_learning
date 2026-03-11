@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-const props = defineProps(['api-url', 'per-page'])
+defineProps(['api-url', 'per-page'])
 const items = ref([])
 
 // mock remote data fetching
@@ -15,7 +15,7 @@ setTimeout(() => {
 <template>
   <ul>
     <li v-if="!items.length">Loading...</li>
-    <li v-for="item in items">
+    <li v-for="item in items" :key="item">
       <slot name="item" v-bind="item"> </slot>
     </li>
   </ul>
