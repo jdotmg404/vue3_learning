@@ -41,10 +41,10 @@ function clickTest() {
 <template>
   <ElForm>
     <ElFormItem>
-      <ElInput style="width: 200px" v-model="email" placeholder="请输入邮箱" />
+      <ElInput v-model="email" placeholder="请输入邮箱" />
     </ElFormItem>
     <ElFormItem>
-      <ElInput style="width: 200px" v-model="password" placeholder="请输入密码" />
+      <ElInput v-model="password" placeholder="请输入密码" />
     </ElFormItem>
     <ElFormItem>
       <ElButton @click="clickTest">测试点击事件</ElButton>

@@ -10,9 +10,9 @@ import BaseLayout from '@/views/component-deep-learning/slots/components/BaseLay
 import CardView from '@/views/component-deep-learning/slots/components/CardView.vue'
 import FancyList from '@/views/component-deep-learning/slots/components/FancyList.vue'
 import MouseTracker from '@/views/component-deep-learning/slots/components/MouseTracker.vue'
+import { getImage } from '@/utils/images'
+
 // 父组件数据
-// 使用 new URL 方式获取图片路径
-const scopedSlotsImg = new URL('@/assets/images/scoped-slots.svg', import.meta.url).href
 const parentMessage = ref('这是父组件的消息')
 const dynamicSlotName = ref('default')
 </script>
@@ -136,7 +136,7 @@ const dynamicSlotName = ref('default')
     <h2>7-作用域插槽</h2>
     <div>
       <p>子组件传入插槽的 props 作为了 v-slot 指令的值，可以在插槽内的表达式中访问。</p>
-      <ElImage :src="scopedSlotsImg" />
+      <img :src="getImage('scoped-slots.svg')" alt="作用域插槽示意图" style="max-width: 100%" />
       <!-- 使用作用域插槽访问子组件数据 -->
       <SlotScopedExample v-slot="slotProps">
         <p>通过作用域插槽获取子组件数据：</p>

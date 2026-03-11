@@ -1,7 +1,7 @@
 import './assets/main.css'
 
 import { createApp, defineComponent, h } from 'vue'
-import ElementPlus, { ElMessage } from 'element-plus'
+import ElementPlus, { ElMessage, ElInput } from 'element-plus'
 import 'element-plus/dist/index.css'
 import { createPinia } from 'pinia'
 
@@ -11,6 +11,42 @@ import router from './router'
 const app = createApp(App)
 
 app.use(ElementPlus)
+
+// 全局覆盖 ElInput 组件，默认宽度 200px，同时支持自定义宽度
+const GlobalElInput = defineComponent({
+  name: 'ElInput',
+  props: {
+    // 继承 ElInput 的所有 props
+    ...ElInput.props,
+    // 添加自定义 width 属性
+    width: {
+      type: [String, Number],
+      default: '200px',
+    },
+  },
+  setup(props, { attrs, slots }) {
+    return () => {
+      // 构建样式对象
+      const style: Record<string, string> = {
+        width: typeof props.width === 'number' ? `${props.width}px` : props.width,
+        ...(attrs.style as Record<string, string>),
+      }
+
+      return h(
+        ElInput,
+        {
+          ...props,
+          ...attrs,
+          style,
+        },
+        slots,
+      )
+    }
+  },
+})
+
+// 注册覆盖的 ElInput 组件
+app.component('ElInput', GlobalElInput)
 
 app.use(createPinia())
 app.use(router)

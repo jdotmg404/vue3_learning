@@ -46,4 +46,13 @@ export default defineConfigWithVueTs(
       }],
     },
   },
+
+  // 禁用多词组件名规则，允许单名组件（如 Child.vue）
+  {
+    name: 'app/component-names',
+    files: ['**/*.vue'],
+    rules: {
+      'vue/multi-word-component-names': 'off',
+    },
+  },
 )

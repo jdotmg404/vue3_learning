@@ -123,10 +123,10 @@ function onCtrlClick(e: Event) {
     <div>
       <h2>6-按键修饰符</h2>
       <!-- 仅在 `key` 为 `Enter` 时调用 `submit` -->
-      <ElInput style="width: 200px" @keyup.enter="onSubmit" label="提交" />
+      <ElInput @keyup.enter="onSubmit" label="提交" />
 
       <!-- 仅会在 $event.key 为 'PageDown' 时调用 onPageDown 事件处理。 -->
-      <ElInput style="width: 200px" @keyup.page-down="onPageDown" label="提交" />
+      <ElInput @keyup.page-down="onPageDown" label="提交" />
 
       <!-- Alt + Enter -->
       <ElInput @keyup.alt.enter="clear" />

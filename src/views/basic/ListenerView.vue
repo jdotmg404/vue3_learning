@@ -119,7 +119,7 @@ watch(id, (newId) => {
     <h2>1-基本示例</h2>
     <p>
       Ask a yes/no question:
-      <ElInput style="width: 200px" v-model="question" :disabled="loading" />
+      <ElInput v-model="question" :disabled="loading" />
     </p>
     <p>Answer: {{ answer }}</p>
 
@@ -147,12 +147,12 @@ watch(id, (newId) => {
 
     <h2>5-即时回调</h2>
     <div>
-      <ElInput style="width: 200px" v-model="source" placeholder="请输入内容" />
+      <ElInput v-model="source" placeholder="请输入内容" />
     </div>
 
     <h2>6-一次性侦听器</h2>
     <div>
-      <ElInput style="width: 200px" v-model="source" placeholder="请输入内容" />
+      <ElInput v-model="source" placeholder="请输入内容" />
     </div>
 
     <h2>7-watchEffect</h2>

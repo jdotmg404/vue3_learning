@@ -39,7 +39,7 @@ const handleInit = (el: VueElement) => {
     <!--    -->
     <h1>模板引用</h1>
     <h2>1-访问模板引用</h2>
-    <ElInput style="width: 200px" ref="myInput" v-model="input" />
+    <ElInput ref="myInput" v-model="input" />
 
     <h2>2-组件引用</h2>
     <MarkdownComponent ref="markdownComponent" :markdown="text" />
@@ -55,7 +55,7 @@ const handleInit = (el: VueElement) => {
 
     <h2>4-函数模板引用</h2>
     <div>
-      <ElInput style="width: 200px" :ref="handleInit" />
+      <ElInput :ref="handleInit" />
     </div>
   </div>
 </template>

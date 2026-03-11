@@ -173,6 +173,15 @@ const router = createRouter({
           },
           component: () => import('@/views/component-deep-learning/slots/IndexView.vue'),
         },
+        {
+          path: 'dependencyInjection',
+          name: 'dependencyInjection',
+          meta: {
+            title: '依赖注入',
+          },
+          component: () =>
+            import('@/views/component-deep-learning/dependency-injection/IndexView.vue'),
+        },
       ],
     },
   ],

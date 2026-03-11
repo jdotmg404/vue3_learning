@@ -18,11 +18,11 @@ const age = ref(0)
     <h1>表单输入绑定</h1>
     <!--    -->
     <p>单行text: {{ text }}</p>
-    <ElInput style="width: 200px" v-model="text" />
+    <ElInput v-model="text" />
     <!--    -->
     <p>多行text:</p>
     <p style="white-space: pre-line">{{ multiText }}</p>
-    <ElInput style="width: 200px" type="textarea" v-model="multiText" />
+    <ElInput type="textarea" v-model="multiText" />
     <!--    -->
     <p>复选框: {{ checked }}</p>
     <ElCheckbox type="checkbox" id="checkbox" v-model="checked" :label="checked" />
