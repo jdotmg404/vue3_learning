@@ -4,8 +4,8 @@ const lastName = defineModel('lastName')
 </script>
 
 <template>
-  <ElInput type="text" v-model="firstName"></ElInput>
-  <ElInput type="text" v-model="lastName"></ElInput>
+  <MyInput type="text" v-model="firstName"></MyInput>
+  <MyInput type="text" v-model="lastName"></MyInput>
 </template>
 
 <style scoped></style>

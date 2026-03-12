@@ -19,6 +19,7 @@
   "dependencies": {
     "@crazydos/vue-markdown": "^1.1.4",
     "dayjs": "^1.11.19",
+    "echarts": "^6.0.0",
     "element-plus": "^2.13.3",
     "pinia": "^3.0.4",
     "rehype-katex": "^7.0.1",

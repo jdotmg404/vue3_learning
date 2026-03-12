@@ -182,6 +182,14 @@ const router = createRouter({
           component: () =>
             import('@/views/component-deep-learning/dependency-injection/IndexView.vue'),
         },
+        {
+          path: 'async',
+          name: 'async',
+          meta: {
+            title: '异步组件',
+          },
+          component: () => import('@/views/component-deep-learning/async/IndexView.vue'),
+        },
       ],
     },
   ],

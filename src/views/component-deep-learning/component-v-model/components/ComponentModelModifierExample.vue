@@ -10,7 +10,7 @@ const [model, modifiers] = defineModel({
 </script>
 
 <template>
-  <ElInput type="text" v-model="model"></ElInput>
+  <MyInput type="text" v-model="model"></MyInput>
 </template>
 
 <style scoped></style>

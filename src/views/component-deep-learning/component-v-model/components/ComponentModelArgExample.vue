@@ -3,7 +3,7 @@ const title = defineModel('title')
 </script>
 
 <template>
-  <ElInput type="text" v-model="title"></ElInput>
+  <MyInput type="text" v-model="title"></MyInput>
 </template>
 
 <style scoped></style>

@@ -1,6 +1,6 @@
 import './assets/main.css'
 
-import { createApp, defineComponent, h } from 'vue'
+import { createApp, defineAsyncComponent, defineComponent, h } from 'vue'
 import ElementPlus, { ElMessage, ElInput } from 'element-plus'
 import 'element-plus/dist/index.css'
 import { createPinia } from 'pinia'
@@ -12,9 +12,9 @@ const app = createApp(App)
 
 app.use(ElementPlus)
 
-// 全局覆盖 ElInput 组件，默认宽度 200px，同时支持自定义宽度
-const GlobalElInput = defineComponent({
-  name: 'ElInput',
+// 二次封装 ElInput 组件，默认宽度 200px，同时支持自定义宽度
+const MyInput = defineComponent({
+  name: 'MyInput',
   props: {
     // 继承 ElInput 的所有 props
     ...ElInput.props,
@@ -45,8 +45,8 @@ const GlobalElInput = defineComponent({
   },
 })
 
-// 注册覆盖的 ElInput 组件
-app.component('ElInput', GlobalElInput)
+// 注册 MyInput 组件
+app.component('MyInput', MyInput)
 
 app.use(createPinia())
 app.use(router)
@@ -79,6 +79,11 @@ const GlobalCopy = defineComponent({
 })
 
 app.component('CopyText', GlobalCopy)
+
+app.component(
+  'LineChart',
+  defineAsyncComponent(() => import('./views/components/LineChart.vue')),
+)
 
 app.mount('#app')
 

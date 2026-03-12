@@ -4,6 +4,8 @@ import { provide, readonly, ref } from 'vue'
 import { getImage } from '@/utils/images'
 import ProviderUpdateExample from '@/views/component-deep-learning/dependency-injection/components/ProviderUpdateExample.vue'
 import ProviderReadonlyExample from '@/views/component-deep-learning/dependency-injection/components/ProviderReadonlyExample.vue'
+import { myInjectionKey } from '@/stores/key.ts'
+import ProviderSymbolKeyExample from '@/views/component-deep-learning/dependency-injection/components/ProviderSymbolKeyExample.vue'
 
 const message = ref('Hello World!')
 provide('message', message)
@@ -24,6 +26,7 @@ const increment = () => {
   count.value++
 }
 provide('countState', { count: readonly(count), increment })
+provide(myInjectionKey, { count })
 </script>
 
 <template>
@@ -36,7 +39,7 @@ provide('countState', { count: readonly(count), increment })
         为了解决prop逐级透传的问题，任何后代的组件树，无论层级有多深，都可以注入由父组件提供给整条链路的依赖。
       </p>
       <img :src="getImage('provide-inject.png')" alt="依赖注入示意图" style="max-width: 600px" />
-      <ElInput v-model="message" />
+      <MyInput v-model="message" />
       <Child></Child>
     </div>
     <br />
@@ -54,9 +57,12 @@ provide('countState', { count: readonly(count), increment })
     </div>
     <br />
 
-    <h2>1-示例</h2>
+    <h2>3-使用Symbol作为注入名</h2>
     <div>
-      <p></p>
+      <p>
+        如果你正在构建大型的应用，包含非常多的依赖提供，或者正在编写提供给其他开发者使用的组件库，使用Symbol作为注入名可以避免潜在的冲突。
+      </p>
+      <ProviderSymbolKeyExample></ProviderSymbolKeyExample>
     </div>
     <br />
   </div>

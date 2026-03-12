@@ -18,11 +18,11 @@ const age = ref(0)
     <h1>表单输入绑定</h1>
     <!--    -->
     <p>单行text: {{ text }}</p>
-    <ElInput v-model="text" />
+    <MyInput v-model="text" />
     <!--    -->
     <p>多行text:</p>
     <p style="white-space: pre-line">{{ multiText }}</p>
-    <ElInput type="textarea" v-model="multiText" />
+    <MyInput type="textarea" v-model="multiText" />
     <!--    -->
     <p>复选框: {{ checked }}</p>
     <ElCheckbox type="checkbox" id="checkbox" v-model="checked" :label="checked" />
@@ -63,13 +63,13 @@ const age = ref(0)
     <h2>修饰符</h2>
     <p>.lazy修饰符</p>
     <!-- 在 "change" 事件后同步更新而不是 "input" -->
-    <ElInput v-model.lazy="msg" />
+    <MyInput v-model.lazy="msg" />
     <p>.number修饰符</p>
     <!-- 让用户输入自动转换为数字 -->
     <input v-model.number="age" />
     <p>.trim修饰符</p>
     <!-- 默认自动去除用户输入内容中两端的空格 -->
-    <ElInput v-model.trim="msg" />
+    <MyInput v-model.trim="msg" />
   </div>
 </template>
 
