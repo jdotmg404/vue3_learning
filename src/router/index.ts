@@ -192,6 +192,29 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: '/logicReuse',
+      name: 'logicReuse',
+      component: () => import('@/views/LogicReuseView.vue'),
+      children: [
+        {
+          path: 'combFunc',
+          name: 'combFunc',
+          meta: {
+            title: '组合式函数',
+          },
+          component: () => import('@/views/logic-reuse/comb-func/IndexView.vue'),
+        },
+        {
+          path: 'customDirective',
+          name: 'customDirective',
+          meta: {
+            title: '自定义指令',
+          },
+          component: () => import('@/views/logic-reuse/custom-directive/IndexView.vue'),
+        },
+      ],
+    },
   ],
 })
 

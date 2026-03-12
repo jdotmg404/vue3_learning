@@ -11,6 +11,7 @@ const router = useRouter()
 const navList = [
   { name: '基础', path: '/basic' },
   { name: '深入组件', path: '/componentDeepLearning' },
+  { name: '逻辑复用', path: '/logicReuse' },
 ]
 
 // 判断导航项是否激活（使用路径前缀匹配）

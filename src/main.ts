@@ -84,6 +84,26 @@ app.component(
   'LineChart',
   defineAsyncComponent(() => import('./views/components/LineChart.vue')),
 )
+// 注册 v-highlight 指令
+app.directive('highlight', {
+  mounted(el, binding) {
+    // 1. 设置背景颜色（优先取传入的值，否则默认黄色）
+    el.style.backgroundColor = binding.value || 'lightyellow'
+
+    // 2. 处理修饰符（例如 v-highlight.bold） bold-加粗
+    if (binding.modifiers.bold) {
+      el.style.fontWeight = 'bold'
+    }
+
+    // 3. 处理其他逻辑，比如圆角
+    el.style.padding = '2px 4px'
+    el.style.borderRadius = '4px'
+  },
+  // 如果颜色是动态的，需要在更新时重新赋值
+  updated(el, binding) {
+    el.style.backgroundColor = binding.value || 'lightyellow'
+  },
+})
 
 app.mount('#app')
 
