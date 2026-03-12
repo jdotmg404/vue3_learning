@@ -4,6 +4,7 @@ import LineChart from '@/views/components/LineChart.vue'
 import LoadingComponent from '@/views/components/LoadingComponent.vue'
 import ErrorComponent from '@/views/components/ErrorComponent.vue'
 import LazyAsyncComponent from '@/views/components/LazyAsyncComponent.vue'
+import Spacer from '@/views/components/Spacer.vue'
 
 const LineChartExample = defineAsyncComponent(
   () => import('@/views/components/LineChartExample.vue'),
@@ -93,10 +94,7 @@ const MockAsyncTimeOutCom = defineAsyncComponent({
       向下滚动查看效果。
     </p>
 
-    <!-- 占位空间，让用户需要滚动才能看到下面的组件 -->
-    <div class="spacer">
-      <p>↓ 向下滚动加载下方组件 ↓</p>
-    </div>
+    <Spacer />
 
     <!-- 惰性加载的组件 1 -->
     <div class="lazy-section">
@@ -104,10 +102,7 @@ const MockAsyncTimeOutCom = defineAsyncComponent({
       <LazyAsyncComponent :loader="() => import('@/views/components/CounterButton.vue')" />
     </div>
 
-    <!-- 占位空间 -->
-    <div class="spacer">
-      <p>↓ 继续向下滚动 ↓</p>
-    </div>
+    <Spacer />
 
     <!-- 惰性加载的组件 2 -->
     <div class="lazy-section">
@@ -118,10 +113,7 @@ const MockAsyncTimeOutCom = defineAsyncComponent({
       />
     </div>
 
-    <!-- 占位空间 -->
-    <div class="spacer">
-      <p>↓ 继续向下滚动 ↓</p>
-    </div>
+    <Spacer />
 
     <!-- 惰性加载的组件 3 - 带加载延迟 -->
     <div class="lazy-section">
@@ -153,22 +145,6 @@ const MockAsyncTimeOutCom = defineAsyncComponent({
   margin-bottom: 12px;
   color: #606266;
   font-size: 14px;
-}
-
-.spacer {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, #f5f7fa 0%, #e4e7ed 100%);
-  border-radius: 8px;
-  margin: 20px 0;
-}
-
-.spacer p {
-  color: #909399;
-  font-size: 18px;
-  font-weight: 500;
 }
 
 .lazy-section {

@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { useMouse } from '@/composables/mouse.ts'
-import { computed, ref } from 'vue'
-import { useFetch } from '@/composables/fetch.ts'
 import CombFuncParamExample from '@/views/logic-reuse/comb-func/components/CombFuncParamExample.vue'
 
 const { x, y } = useMouse()

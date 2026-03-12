@@ -3,16 +3,25 @@ defineOptions({
   name: 'AppNavbar',
 })
 import { RouterLink, useRoute, useRouter } from 'vue-router'
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
+import router from '@/router'
 
 const route = useRoute()
-const router = useRouter()
+const vueRouter = useRouter()
 
-const navList = [
-  { name: '基础', path: '/basic' },
-  { name: '深入组件', path: '/componentDeepLearning' },
-  { name: '逻辑复用', path: '/logicReuse' },
-]
+// 从路由配置中自动读取根路由
+const navList = computed(() => {
+  return router
+    .getRoutes()
+    .filter((route) => {
+      // 筛选出根路由（路径以 / 开头且不是根路径 /）
+      return route.path.startsWith('/') && route.path !== '/' && !route.path.includes('/', 1)
+    })
+    .map((route) => ({
+      name: (route.meta?.title as string) || route.name || route.path,
+      path: route.path,
+    }))
+})
 
 // 判断导航项是否激活（使用路径前缀匹配）
 const isActive = (path: string) => {
@@ -21,9 +30,9 @@ const isActive = (path: string) => {
 
 // 页面首次加载时，如果没有匹配的路由，默认跳转到第一个 tab
 onMounted(() => {
-  const isMatch = navList.some((item) => route.path.startsWith(item.path))
-  if (!isMatch && navList.length > 0) {
-    router.replace(navList[0]?.path)
+  const isMatch = navList.value.some((item) => route.path.startsWith(item.path))
+  if (!isMatch && navList.value.length > 0) {
+    vueRouter.replace(navList.value[0]?.path)
   }
 })
 </script>

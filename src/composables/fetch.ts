@@ -1,16 +1,16 @@
-import { ref, watchEffect, toValue, type Ref } from 'vue'
+import { type MaybeRef, type Ref, ref, toValue, watchEffect } from 'vue'
 
-interface UseFetchResult<T> {
+export interface UseFetchResult<T> {
   data: Ref<T | null>
   error: Ref<Error | null>
 }
 
-export function useFetch<T = unknown>(url: string | Ref<string>): UseFetchResult<T> {
-  const data = ref<T | null>(null)
-  const error = ref<Error | null>(null)
+export function useFetch<T = unknown>(url: MaybeRef<string>): UseFetchResult<T> {
+  const data = ref<T | null>(null) as Ref<T | null>
+  const error = ref<Error | null>(null) as Ref<Error | null>
 
   watchEffect(async () => {
-    // reset state before fetching..
+    // reset state before fetching...
     data.value = null
     error.value = null
 
@@ -24,7 +24,7 @@ export function useFetch<T = unknown>(url: string | Ref<string>): UseFetchResult
       // unref() will return the ref value if it's a ref
       // otherwise the value will be returned as-is
       const res = await fetch(urlValue)
-      data.value = await res.json() as T
+      data.value = (await res.json()) as T
     } catch (e) {
       error.value = e instanceof Error ? e : new Error(String(e))
     }

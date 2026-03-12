@@ -1,9 +1,10 @@
 import './assets/main.css'
 
 import { createApp, defineAsyncComponent, defineComponent, h } from 'vue'
-import ElementPlus, { ElMessage, ElInput } from 'element-plus'
+import ElementPlus, { ElInput, ElMessage } from 'element-plus'
 import 'element-plus/dist/index.css'
 import { createPinia } from 'pinia'
+import i18nPlugin, { type TranslateOptions } from './plugins/i18n'
 
 import App from './App.vue'
 import router from './router'
@@ -104,6 +105,20 @@ app.directive('highlight', {
     el.style.backgroundColor = binding.value || 'lightyellow'
   },
 })
+
+// 定义你的翻译字典对象
+const i18nConfig: TranslateOptions = {
+  greetings: {
+    hello: '你好!',
+  },
+  button: {
+    confirm: '确定',
+    cancel: '取消',
+  },
+}
+
+// 注册插件并传入配置
+app.use(i18nPlugin, i18nConfig)
 
 app.mount('#app')
 

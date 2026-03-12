@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { randomHexColor } from '@/utils/color.ts'
 import DirectiveHookMd from './markdown/directive-hook.md?raw'
 import MarkdownComponent from '@/views/components/MarkdownComponent.vue'
+
 const dynamicColor = ref(randomHexColor())
 
 const changeColor = () => {

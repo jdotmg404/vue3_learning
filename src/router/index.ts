@@ -6,6 +6,9 @@ const router = createRouter({
     {
       path: '/basic',
       name: 'basic',
+      meta: {
+        title: '基础',
+      },
       component: () => import('@/views/BasicView.vue'),
       children: [
         {
@@ -114,10 +117,12 @@ const router = createRouter({
         },
       ],
     },
-
     {
       path: '/componentDeepLearning',
       name: 'componentDeepLearning',
+      meta: {
+        title: '深入组件',
+      },
       // component: {
       //   render: () => h(RouterView),
       // },
@@ -195,6 +200,9 @@ const router = createRouter({
     {
       path: '/logicReuse',
       name: 'logicReuse',
+      meta: {
+        title: '逻辑复用',
+      },
       component: () => import('@/views/LogicReuseView.vue'),
       children: [
         {
@@ -212,6 +220,40 @@ const router = createRouter({
             title: '自定义指令',
           },
           component: () => import('@/views/logic-reuse/custom-directive/IndexView.vue'),
+        },
+        {
+          path: 'plugin',
+          name: 'plugin',
+          meta: {
+            title: '插件',
+          },
+          component: () => import('@/views/logic-reuse/plugin/IndexView.vue'),
+        },
+      ],
+    },
+    {
+      path: '/builtInComp',
+      name: 'builtInComp',
+      meta: {
+        title: '内置组件',
+      },
+      component: () => import('@/views/BuiltInCompView.vue'),
+      children: [
+        {
+          path: 'transition',
+          name: 'transition',
+          meta: {
+            title: 'Transition',
+          },
+          component: () => import('@/views/built-in-comp/transition/IndexView.vue'),
+        },
+        {
+          path: 'transitionGroup',
+          name: 'transitionGroup',
+          meta: {
+            title: 'TransitionGroup',
+          },
+          component: () => import('@/views/built-in-comp/transition-group/IndexView.vue'),
         },
       ],
     },
