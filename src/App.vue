@@ -12,6 +12,8 @@ import Navbar from '@/views/components/Navbar.vue'
       <RouterView />
     </main>
     <footer class="footer">
+      <!-- 所有的通知都会被传送到这里 -->
+      <p style="float: right" id="notification-container"></p>
       <ElBacktop :right="100" :bottom="100" />
     </footer>
   </div>

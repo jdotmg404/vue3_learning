@@ -1,6 +1,6 @@
 import './assets/main.css'
 
-import { createApp, defineAsyncComponent, defineComponent, h } from 'vue'
+import { createApp, defineAsyncComponent, defineComponent, h, ref } from 'vue'
 import ElementPlus, { ElInput, ElMessage } from 'element-plus'
 import 'element-plus/dist/index.css'
 import { createPinia } from 'pinia'
@@ -25,7 +25,18 @@ const MyInput = defineComponent({
       default: '200px',
     },
   },
-  setup(props, { attrs, slots }) {
+  setup(props, { attrs, slots, expose }) {
+    const elInputRef = ref<InstanceType<typeof ElInput>>()
+
+    expose({
+      focus: () => {
+        elInputRef.value?.focus()
+      },
+      blur: () => {
+        elInputRef.value?.blur()
+      },
+    })
+
     return () => {
       // 构建样式对象
       const style: Record<string, string> = {
@@ -36,6 +47,7 @@ const MyInput = defineComponent({
       return h(
         ElInput,
         {
+          ref: elInputRef,
           ...props,
           ...attrs,
           style,

@@ -255,6 +255,22 @@ const router = createRouter({
           },
           component: () => import('@/views/built-in-comp/transition-group/IndexView.vue'),
         },
+        {
+          path: 'keepAlive',
+          name: 'keepAlive',
+          meta: {
+            title: 'KeepAlive',
+          },
+          component: () => import('@/views/built-in-comp/keep-alive/IndexView.vue'),
+        },
+        {
+          path: 'teleport',
+          name: 'teleport',
+          meta: {
+            title: 'Teleport',
+          },
+          component: () => import('@/views/built-in-comp/teleport/IndexView.vue'),
+        },
       ],
     },
   ],

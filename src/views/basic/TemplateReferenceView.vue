@@ -15,7 +15,7 @@ const list = ref([{ message: '111' }, { message: '222' }])
 const itemsRef = useTemplateRef('items')
 
 onMounted(() => {
-  inputRef.value.focus()
+  inputRef.value?.focus()
   // markdownComponentRef.value 将持有 markdown-component 组件实例
   console.log(markdownComponentRef.value)
 
